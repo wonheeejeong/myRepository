@@ -1,5 +1,5 @@
-Attribute VB_Name = "¸ÅÅ©·Î"
-Sub ½ÇÇà()
+Attribute VB_Name = "ë§¤í¬ë¡œ"
+Sub ì‹¤í–‰()
 
     Dim FilePath As String
     Dim FileName As String
@@ -13,11 +13,11 @@ Sub ½ÇÇà()
     curRowNum = 2
     curFileNum = 1
     
-    FilePath = Application.ThisWorkbook.Path & "\¿ùº°µ¥ÀÌÅÍ¸ñ·Ï\"
+    FilePath = Application.ThisWorkbook.Path & "\ì›”ë³„ë°ì´í„°ëª©ë¡\"
     FileName = Dir(FilePath & "*.csv")
     
     Dim companyList
-    companyList = Array("ÇÑ¾çÀÌ¿£Áö")
+    companyList = Array("í•œì–‘ì´ì—”ì§€")
     
 
     While FileName <> ""
@@ -25,7 +25,7 @@ Sub ½ÇÇà()
         Call openFile(FilePath, FileName)
 
         Set dataList = Range("B2", Cells(Rows.Count, "B").End(xlUp))
-        Debug.Print "ÇöÀç ¹øÈ£ :  " & curFileNum
+        Debug.Print "í˜„ì¬ ë²ˆí˜¸ :  " & curFileNum
         curFileNum = curFileNum + 1
 
         For Each company In companyList
@@ -36,11 +36,11 @@ Sub ½ÇÇà()
                 firstAddr = target.Address
 
                 Do
-                    ''MsgBox "ÀÚ·á»ı¼º³â¿ù : " & target.Offset(0, -1) & "»ç¾÷Àå¸í : " & target & ", °¡ÀÔÀÚ¼ö :  " & target.Offset(0, 17) & ", À¾¸éµ¿ÄÚµå : " & target.Offset(0, 10)'
-                    ThisWorkbook.Sheets("µ¥ÀÌÅÍ¸ğÀ½").Cells(curRowNum, 1) = target.Offset(0, -1)
-                    ThisWorkbook.Sheets("µ¥ÀÌÅÍ¸ğÀ½").Cells(curRowNum, 2) = target.Offset(0, 0)
-                    ThisWorkbook.Sheets("µ¥ÀÌÅÍ¸ğÀ½").Cells(curRowNum, 3) = target.Offset(0, 17)
-                    ThisWorkbook.Sheets("µ¥ÀÌÅÍ¸ğÀ½").Cells(curRowNum, 4) = target.Offset(0, 10)
+                    ''MsgBox "ìë£Œìƒì„±ë…„ì›” : " & target.Offset(0, -1) & "ì‚¬ì—…ì¥ëª… : " & target & ", ê°€ì…ììˆ˜ :  " & target.Offset(0, 17) & ", ìë©´ë™ì½”ë“œ : " & target.Offset(0, 10)'
+                    ThisWorkbook.Sheets("ë°ì´í„°ëª¨ìŒ").Cells(curRowNum, 1) = target.Offset(0, -1)
+                    ThisWorkbook.Sheets("ë°ì´í„°ëª¨ìŒ").Cells(curRowNum, 2) = target.Offset(0, 0)
+                    ThisWorkbook.Sheets("ë°ì´í„°ëª¨ìŒ").Cells(curRowNum, 3) = target.Offset(0, 17)
+                    ThisWorkbook.Sheets("ë°ì´í„°ëª¨ìŒ").Cells(curRowNum, 4) = target.Offset(0, 10)
                     curRowNum = curRowNum + 1
                     Set target = dataList.FindNext(target)
                 Loop While Not target Is Nothing And target.Address <> firstAddr
