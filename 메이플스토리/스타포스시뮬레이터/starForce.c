@@ -191,21 +191,21 @@ int main(void)
                 Item sampleItem = {3550000000, 200, 0, 0, 0};
 
                 while(sampleItem.lv_SF < 22){
-                    //printf("%d¼º -> %d¼º ½ºÅ¸Æ÷½º ½Ãµµ\n", sampleItem.lv_SF, sampleItem.lv_SF + 1);
+                    //printf("%dì„± -> %dì„± ìŠ¤íƒ€í¬ìŠ¤ ì‹œë„\n", sampleItem.lv_SF, sampleItem.lv_SF + 1);
                     changeSF(&sampleItem, getResultSF(sampleItem.lv_SF, p, q));
-                    //printf("%½Ãµµ °á°ú : %d¼º\n\n", sampleItem.lv_SF);
+                    //printf("%ì‹œë„ ê²°ê³¼ : %dì„±\n\n", sampleItem.lv_SF);
                 }
                 resultCost[i] = sampleItem.totalCost;
                 resultCostSum += sampleItem.totalCost;
                 resultDestroyed[i] = sampleItem.totalDestroyed;
                 resultDestroyedSum += sampleItem.totalDestroyed;
-                //printf("ÃÑ %dÈ¸ µµÀü Áß %d¹øÂ° ½Ãµµºñ¿ë : %s¸Ş¼Ò\n"  , TRY, i+1, commify(resultCost[i], buf, 0));
-                //printf("ÃÑ %dÈ¸ µµÀü Áß %d¹øÂ° ÆÄ±«È½¼ö : %sÈ¸\n\n", TRY, i+1, commify(resultDestroyed[i], buf, 0));
+                //printf("ì´ %díšŒ ë„ì „ ì¤‘ %dë²ˆì§¸ ì‹œë„ë¹„ìš© : %së©”ì†Œ\n"  , TRY, i+1, commify(resultCost[i], buf, 0));
+                //printf("ì´ %díšŒ ë„ì „ ì¤‘ %dë²ˆì§¸ íŒŒê´´íšŸìˆ˜ : %síšŒ\n\n", TRY, i+1, commify(resultDestroyed[i], buf, 0));
 
             }
 
-            printf("\n\nÆò±Õ ½Ãµµºñ¿ë : %s¸Ş¼Ò\n" ,commify(resultCostSum/TRY, buf, 0));
-            printf("Æò±Õ ÆÄ±«È½¼ö : %sÈ¸\n" ,     commify((double)(resultDestroyedSum)/TRY, buf, 3));
+            printf("\n\ní‰ê·  ì‹œë„ë¹„ìš© : %së©”ì†Œ\n" ,commify(resultCostSum/TRY, buf, 0));
+            printf("í‰ê·  íŒŒê´´íšŸìˆ˜ : %síšŒ\n" ,     commify((double)(resultDestroyedSum)/TRY, buf, 3));
 
             long long temp;
             for(int i = 0 ; i < TRY-1 ; i ++) {
@@ -229,22 +229,22 @@ int main(void)
                 }
             }
 
-            printf("1µî(»óÀ§ 0.001ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[0], buf, 0), resultDestroyed[0]);
-            printf("100µî(»óÀ§ 0.1ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[99], buf, 0), resultDestroyed[99]);
-            printf("1000µî(»óÀ§ 1ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[999], buf, 0), resultDestroyed[999]);
-            printf("10000µî(»óÀ§ 10ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[9999], buf, 0), resultDestroyed[9999]);
-            printf("50000µî(»óÀ§ 50ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[49999], buf, 0), resultDestroyed[49999]);
-            printf("75000µî(»óÀ§ 75ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[74999], buf, 0), resultDestroyed[74999]);
-            printf("90000µî(»óÀ§ 90ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[89999], buf, 0), resultDestroyed[89999]);
-            printf("100000µî(»óÀ§ 100ÆÛ¼¾Æ®)\n");
-            printf("%s¸Ş¼Ò\n%d¹ø\n\n", commify(resultCost[99999], buf, 0), resultDestroyed[99999]);
+            printf("1ë“±(ìƒìœ„ 0.001í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[0], buf, 0), resultDestroyed[0]);
+            printf("100ë“±(ìƒìœ„ 0.1í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[99], buf, 0), resultDestroyed[99]);
+            printf("1000ë“±(ìƒìœ„ 1í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[999], buf, 0), resultDestroyed[999]);
+            printf("10000ë“±(ìƒìœ„ 10í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[9999], buf, 0), resultDestroyed[9999]);
+            printf("50000ë“±(ìƒìœ„ 50í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[49999], buf, 0), resultDestroyed[49999]);
+            printf("75000ë“±(ìƒìœ„ 75í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[74999], buf, 0), resultDestroyed[74999]);
+            printf("90000ë“±(ìƒìœ„ 90í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[89999], buf, 0), resultDestroyed[89999]);
+            printf("100000ë“±(ìƒìœ„ 100í¼ì„¼íŠ¸)\n");
+            printf("%së©”ì†Œ\n%dë²ˆ\n\n", commify(resultCost[99999], buf, 0), resultDestroyed[99999]);
 
             }
     }
