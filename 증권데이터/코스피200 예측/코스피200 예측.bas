@@ -1,39 +1,39 @@
 Attribute VB_Name = "Module1"
-Sub ÀÏÆò±Õ»ý¼º()
+Sub ì¼í‰ê· ìƒì„±()
 
-    Sheets("ÀÏÆò±Õ°Å·¡´ë±Ý").Select
+    Sheets("ì¼í‰ê· ê±°ëž˜ëŒ€ê¸ˆ").Select
     Set List = Range("B9", Range("B9").End(xlToRight))
     Set dateList = Range("A15", Cells(Rows.Count, "A").End(xlUp))
 
     For Each i In List
-        Set tmpList = Worksheets("°Å·¡´ë±Ý").Range("B9", "BQC9")
+        Set tmpList = Worksheets("ê±°ëž˜ëŒ€ê¸ˆ").Range("B9", "BQC9")
         Set target = tmpList.Find(what:=i.Value, lookat:=xlWhole)
         cnt = 0
         daegeum = 0
         For Each j In dateList
-            If Worksheets("°Å·¡´ë±Ý").Cells(j.Row, target.Column).Value > 0 Then
+            If Worksheets("ê±°ëž˜ëŒ€ê¸ˆ").Cells(j.Row, target.Column).Value > 0 Then
                 cnt = cnt + 1
-                daegeum = daegeum + Worksheets("°Å·¡´ë±Ý").Cells(j.Row, target.Column).Value
-                Worksheets("ÀÏÆò±Õ°Å·¡´ë±Ý").Cells(j.Row, i.Column).Value = daegeum / cnt
+                daegeum = daegeum + Worksheets("ê±°ëž˜ëŒ€ê¸ˆ").Cells(j.Row, target.Column).Value
+                Worksheets("ì¼í‰ê· ê±°ëž˜ëŒ€ê¸ˆ").Cells(j.Row, i.Column).Value = daegeum / cnt
             End If
         Next
     Next
     
     
-    Sheets("ÀÏÆò±Õ½Ã°¡ÃÑ¾×").Select
+    Sheets("ì¼í‰ê· ì‹œê°€ì´ì•¡").Select
     Set List = Range("B9", Range("B9").End(xlToRight))
     Set dateList = Range("A15", Cells(Rows.Count, "A").End(xlUp))
     
     For Each i In List
-        Set tmpList = Worksheets("½Ã°¡ÃÑ¾×").Range("B9", "BQC9")
+        Set tmpList = Worksheets("ì‹œê°€ì´ì•¡").Range("B9", "BQC9")
         Set target = tmpList.Find(what:=i.Value, lookat:=xlWhole)
         cnt = 0
         daegeum = 0
         For Each j In dateList
-            If Worksheets("½Ã°¡ÃÑ¾×").Cells(j.Row, target.Column).Value > 0 Then
+            If Worksheets("ì‹œê°€ì´ì•¡").Cells(j.Row, target.Column).Value > 0 Then
                 cnt = cnt + 1
-                daegeum = daegeum + Worksheets("½Ã°¡ÃÑ¾×").Cells(j.Row, target.Column).Value
-                Worksheets("ÀÏÆò±Õ½Ã°¡ÃÑ¾×").Cells(j.Row, i.Column).Value = daegeum / cnt
+                daegeum = daegeum + Worksheets("ì‹œê°€ì´ì•¡").Cells(j.Row, target.Column).Value
+                Worksheets("ì¼í‰ê· ì‹œê°€ì´ì•¡").Cells(j.Row, i.Column).Value = daegeum / cnt
             End If
         Next
     Next
@@ -43,22 +43,22 @@ Sub ÀÏÆò±Õ»ý¼º()
 End Sub
 
 
-Sub ¼±Á¤°úÁ¤()
+Sub ì„ ì •ê³¼ì •()
 
     
     
     Dim sectorList(9, 1 To 100) As Integer
     Dim sector As String
 
-    Sheets("ÀÏÆò±Õ½Ã°¡ÃÑ¾×").Select
+    Sheets("ì¼í‰ê· ì‹œê°€ì´ì•¡").Select
     Set dateList = Range("A15", Cells(Rows.Count, "A").End(xlUp))
     'Set dateList = Range("A15")
     Set companyList = Range("B9", Range("B9").End(xlToRight))
-    Sheets("±âÁ¸±¸¼ºÁ¾¸ñ").Select
+    Sheets("ê¸°ì¡´êµ¬ì„±ì¢…ëª©").Select
     Set beforeList = Range("B2", Cells(Rows.Count, "B").End(xlUp))
 
     
-    Sheets("ÀÏÆò±Õ½Ã°¡ÃÑ¾×").Select
+    Sheets("ì¼í‰ê· ì‹œê°€ì´ì•¡").Select
    
     
     
@@ -67,25 +67,25 @@ Sub ¼±Á¤°úÁ¤()
             For i = 0 To 9
                 Select Case i
                     Case 0
-                        sector = "¿¡³ÊÁö"
+                        sector = "ì—ë„ˆì§€"
                     Case 1
-                        sector = "¼ÒÀç"
+                        sector = "ì†Œìž¬"
                     Case 2
-                        sector = "»ê¾÷Àç"
+                        sector = "ì‚°ì—…ìž¬"
                     Case 3
-                        sector = "ÀÚÀ¯¼ÒºñÀç"
+                        sector = "ìžìœ ì†Œë¹„ìž¬"
                     Case 4
-                        sector = "ÇÊ¼ö¼ÒºñÀç"
+                        sector = "í•„ìˆ˜ì†Œë¹„ìž¬"
                     Case 5
-                        sector = "Çï½ºÄÉ¾î"
+                        sector = "í—¬ìŠ¤ì¼€ì–´"
                     Case 6
-                        sector = "±ÝÀ¶ ¹× ºÎµ¿»ê"
+                        sector = "ê¸ˆìœµ ë° ë¶€ë™ì‚°"
                     Case 7
-                        sector = "Á¤º¸±â¼ú"
+                        sector = "ì •ë³´ê¸°ìˆ "
                     Case 8
-                        sector = "Ä¿¹Â´ÏÄÉÀÌ¼Ç¼­ºñ½º"
+                        sector = "ì»¤ë®¤ë‹ˆì¼€ì´ì…˜ì„œë¹„ìŠ¤"
                     Case 9
-                        sector = "À¯Æ¿¸®Æ¼"
+                        sector = "ìœ í‹¸ë¦¬í‹°"
                 End Select
 
                 Total = 0
@@ -93,19 +93,19 @@ Sub ¼±Á¤°úÁ¤()
                 cnt = 0
                 cnt_b = 0
     
-                Dim arrV(200) As Double     '¼½ÅÍº° ÀÏÆò±Õ½Ã°¡ÃÑ¾×'
-                Dim arrC(200) As String     '¼½ÅÍº° ±â¾÷¸í'
+                Dim arrV(200) As Double     'ì„¹í„°ë³„ ì¼í‰ê· ì‹œê°€ì´ì•¡'
+                Dim arrC(200) As String     'ì„¹í„°ë³„ ê¸°ì—…ëª…'
                 
-                Dim arrV_t(200) As Double   '¼½ÅÍº° ÀÏÆò±Õ°Å·¡´ë±Ý'
-                Dim arrC_t(200) As String   '¼½ÅÍº° ±â¾÷¸í'
+                Dim arrV_t(200) As Double   'ì„¹í„°ë³„ ì¼í‰ê· ê±°ëž˜ëŒ€ê¸ˆ'
+                Dim arrC_t(200) As String   'ì„¹í„°ë³„ ê¸°ì—…ëª…'
                 
-                Dim arrV_b(300) As Double   '±âÁ¸Á¾¸ñ ÀÏÆò±Õ½Ã°¡ÃÑ¾×'
-                Dim arrC_b(300) As String   '±âÁ¸Á¾¸ñ ÀÏÆò±Õ°Å·¡´ë±Ý'
+                Dim arrV_b(300) As Double   'ê¸°ì¡´ì¢…ëª© ì¼í‰ê· ì‹œê°€ì´ì•¡'
+                Dim arrC_b(300) As String   'ê¸°ì¡´ì¢…ëª© ì¼í‰ê· ê±°ëž˜ëŒ€ê¸ˆ'
                 
                 For Each Item In beforeList
                     If Item.Offset(0, 5) = sector Then
                         Set target = companyList.Find(what:=Item.Value, lookat:=xlWhole)
-                        arrV_b(cnt_b) = Worksheets("ÀÏÆò±Õ½Ã°¡ÃÑ¾×").Cells(d.Row, target.Column).Value
+                        arrV_b(cnt_b) = Worksheets("ì¼í‰ê· ì‹œê°€ì´ì•¡").Cells(d.Row, target.Column).Value
                         arrC_b(cnt_b) = Item.Value
                         cnt_b = cnt_b + 1
                     End If
@@ -118,7 +118,7 @@ Sub ¼±Á¤°úÁ¤()
                         Total = Total + Cells(d.Row, company.Column).Value
                         arrV(cnt) = Cells(d.Row, company.Column).Value
                         arrC(cnt) = company
-                        arrV_t(cnt) = Worksheets("ÀÏÆò±Õ°Å·¡´ë±Ý").Cells(d.Row, company.Column).Value
+                        arrV_t(cnt) = Worksheets("ì¼í‰ê· ê±°ëž˜ëŒ€ê¸ˆ").Cells(d.Row, company.Column).Value
                         arrC_t(cnt) = company
                         cnt = cnt + 1
                     End If
@@ -166,19 +166,19 @@ Sub ¼±Á¤°úÁ¤()
                     Debug.Print ""
                 Next
                  
-                deadline = WorksheetFunction.RoundDown(WorksheetFunction.VLookup(sector, Sheets("»ê¾÷±º(ÄÚ½ºÇÇ)").Range("F2:G11"), 2, 0) * 0.85, 0)
+                deadline = WorksheetFunction.RoundDown(WorksheetFunction.VLookup(sector, Sheets("ì‚°ì—…êµ°(ì½”ìŠ¤í”¼)").Range("F2:G11"), 2, 0) * 0.85, 0)
                 
                 For p = 0 To cnt - 1
                     Dim flag As Boolean: flag = False
                     cur = cur + arrV(p)
-                    Worksheets("1Â÷¼±Á¤").Cells(d.Row, col + 2) = arrC(p)
-                    Worksheets("1Â÷¼±Á¤").Cells(d.Row, col + 2).Font.Color = RGB(255, 255, 255)
-                    'Worksheets("1Â÷¼±Á¤").Cells(d.Row, col + 2) = arrV(p)
-                    'Worksheets("1Â÷¼±Á¤").Cells(9, col + 2) = arrC(p)
-                    'Worksheets("1Â÷¼±Á¤").Cells(9, col + 2).Font.Color = RGB(255, 255, 255)
-                    'Worksheets("1Â÷¼±Á¤").Cells(10, col + 2) = sector
+                    Worksheets("1ì°¨ì„ ì •").Cells(d.Row, col + 2) = arrC(p)
+                    Worksheets("1ì°¨ì„ ì •").Cells(d.Row, col + 2).Font.Color = RGB(255, 255, 255)
+                    'Worksheets("1ì°¨ì„ ì •").Cells(d.Row, col + 2) = arrV(p)
+                    'Worksheets("1ì°¨ì„ ì •").Cells(9, col + 2) = arrC(p)
+                    'Worksheets("1ì°¨ì„ ì •").Cells(9, col + 2).Font.Color = RGB(255, 255, 255)
+                    'Worksheets("1ì°¨ì„ ì •").Cells(10, col + 2) = sector
                     If Total * 0.85 > cur Then
-                        Worksheets("1Â÷¼±Á¤").Cells(d.Row, col + 2).Interior.Color = RGB(255, 0, 0)
+                        Worksheets("1ì°¨ì„ ì •").Cells(d.Row, col + 2).Interior.Color = RGB(255, 0, 0)
                         For q = 0 To deadline - 1
                             If arrC(p) = arrC_t(q) Then
                                 flag = True
@@ -186,10 +186,10 @@ Sub ¼±Á¤°úÁ¤()
                         Next
                         If flag = False Then
                             'MsgBox "in"
-                            Worksheets("1Â÷¼±Á¤").Cells(d.Row, col + 2).Interior.Color = RGB(102, 0, 204)
+                            Worksheets("1ì°¨ì„ ì •").Cells(d.Row, col + 2).Interior.Color = RGB(102, 0, 204)
                         End If
                     Else
-                        Worksheets("1Â÷¼±Á¤").Cells(d.Row, col + 2).Interior.Color = RGB(0, 0, 255)
+                        Worksheets("1ì°¨ì„ ì •").Cells(d.Row, col + 2).Interior.Color = RGB(0, 0, 255)
                     End If
                     col = col + 1
                 Next
@@ -199,37 +199,15 @@ Sub ¼±Á¤°úÁ¤()
             Next
         Next
         
-        Worksheets("1Â÷¼±Á¤").Select
+        Worksheets("1ì°¨ì„ ì •").Select
         
         
         
         MsgBox "end"
     
 
-
-
 End Sub
 
-
-Sub test()
-
-    Sheets("1Â÷¼±Á¤").Select
-    Set companyList = Range("B9", Range("B9").End(xlToRight))
-    cnt = 0
-    
-    For Each company In companyList
-        If company.Interior.Color = RGB(255, 0, 0) Then
-            cnt = cnt + 1
-        End If
-    Next
-    
-    MsgBox cnt
-    
-    deadline = WorksheetFunction.VLookup("¿¡³ÊÁö", Sheets("»ê¾÷±º").Range("F2:G11"), 2, 0) * 0.85
-    MsgBox deadline
-
-
-End Sub
 
 
 Public Function clear()
